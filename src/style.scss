@@ -7,6 +7,8 @@ $dark-background-button:rgba(107, 107, 107, 0.33);
 $dark-text-button:rgba(107,107,107,1);
 $purple-background-button:rgba(109, 113, 249, 0.26);
 $purple-text-color-button:#6D71F9;
+$purple-active:#835be1;
+$purple-hover:#7e5ad1;
 
 @mixin headerBgDark {
    backdrop-filter: blur(14px) saturate(180%);
@@ -66,7 +68,10 @@ body{
    padding-top: 15rem;
 }
 
-
+button{
+   transition: all 0.25s ease-out;
+   cursor: pointer ;
+}
 
 .container{
    width: 100%;
@@ -97,7 +102,6 @@ header{
       border-radius: 50px;
       border: none;
       margin: 0 0.7rem;
-      cursor: crosshair;
       color:$dark-text-button;
       text-align: center;
       font-size: 1.05em;
@@ -121,6 +125,8 @@ header{
       }
    }
 }
+
+
 
 .home{
    display: flex;
@@ -209,7 +215,6 @@ form{
       font-size: 1rem;
       border: none;
       outline: none;
-      cursor: crosshair;
       } 
    button:hover{
     @include buttonPurple() ;
@@ -231,21 +236,94 @@ form{
    }
 }
 
-.todo{
+.todo-wraper{
    @include headerBgDark();
-   height: 200px;
    width: 71%;
    margin: 0 auto;
    border-radius: 10px;
+   color: #fff;
+   overflow: hidden;
+   .todo-items{
+      .item-checked{
+         .todo-text{
+            color:$dark-text-button;
+            text-decoration: line-through;
+         }
+         .check{
+            background-color: $purple-text-color-button;
+         }
+      }
+      .todo-item{
+         @include headerBgDark();
+         width: 97%;
+         min-height: 70px;
+         margin: .6em auto;
+         display: flex;
+         align-items: center;
+         font-size: 1.1em;
+         font-weight: 500;
+         border-radius: 50px;
+         
+         .todo-check{
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 75px;
+            
+
+            .check{
+               width: 50px;
+               height: 50px;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               border: .5px $purple-text-color-button solid ;
+               border-radius: 50%;
+            }
+         }
+
+         .todo-text{
+            flex-grow: 1;
+         }
+      }
+   }
+   .todo-settings{
+      @include headerBgDark();
+      border:none;
+      border-top: 1px rgba(107, 107, 107, 0.33) solid;
+      color:$dark-text-button ;
+      font-size: 1.2rem;
+      height: 70px;
+      padding: 0 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span{
+         cursor: pointer;
+         padding: 0 1em;
+      }
+      span:hover{
+         color:$purple-hover ;
+      }
+      span.active{
+         color: $purple-active;
+      }
+      .todo-clearDone:hover{
+         color:$purple-hover;
+         cursor: pointer;
+      }
+   }
    
 }
 
+//------------------------------Media Queries------------------------------
 
 @media (max-width:1200px) {
    form{
       width: 95%;
    }
-   .todo{
+   .todo-wraper{
       width: 95%;
    }
 }

@@ -44,6 +44,12 @@ body {
   padding-top: 15rem;
 }
 
+button {
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  cursor: pointer;
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -81,7 +87,6 @@ header button {
   border-radius: 50px;
   border: none;
   margin: 0 0.7rem;
-  cursor: crosshair;
   color: #6b6b6b;
   text-align: center;
   font-size: 1.05em;
@@ -219,7 +224,6 @@ form button {
   font-size: 1rem;
   border: none;
   outline: none;
-  cursor: crosshair;
 }
 
 form button:hover {
@@ -259,22 +263,127 @@ form input::placeholder {
   font-size: 1rem;
 }
 
-.todo {
+.todo-wraper {
   backdrop-filter: blur(14px) saturate(180%);
   -webkit-backdrop-filter: blur(14px) saturate(180%);
   background-color: rgba(34, 36, 41, 0.34);
   border: 0.6px solid rgba(255, 255, 255, 0.125);
-  height: 200px;
   width: 71%;
   margin: 0 auto;
   border-radius: 10px;
+  color: #fff;
+  overflow: hidden;
+}
+
+.todo-wraper .todo-items .item-checked .todo-text {
+  color: #6b6b6b;
+  text-decoration: line-through;
+}
+
+.todo-wraper .todo-items .item-checked .check {
+  background-color: #6D71F9;
+}
+
+.todo-wraper .todo-items .todo-item {
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  background-color: rgba(34, 36, 41, 0.34);
+  border: 0.6px solid rgba(255, 255, 255, 0.125);
+  width: 97%;
+  min-height: 70px;
+  margin: .6em auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.1em;
+  font-weight: 500;
+  border-radius: 50px;
+}
+
+.todo-wraper .todo-items .todo-item .todo-check {
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 75px;
+}
+
+.todo-wraper .todo-items .todo-item .todo-check .check {
+  width: 50px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 0.5px #6D71F9 solid;
+  border-radius: 50%;
+}
+
+.todo-wraper .todo-items .todo-item .todo-text {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.todo-wraper .todo-settings {
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  background-color: rgba(34, 36, 41, 0.34);
+  border: 0.6px solid rgba(255, 255, 255, 0.125);
+  border: none;
+  border-top: 1px rgba(107, 107, 107, 0.33) solid;
+  color: #6b6b6b;
+  font-size: 1.2rem;
+  height: 70px;
+  padding: 0 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.todo-wraper .todo-settings span {
+  cursor: pointer;
+  padding: 0 1em;
+}
+
+.todo-wraper .todo-settings span:hover {
+  color: #7e5ad1;
+}
+
+.todo-wraper .todo-settings span.active {
+  color: #835be1;
+}
+
+.todo-wraper .todo-settings .todo-clearDone:hover {
+  color: #7e5ad1;
+  cursor: pointer;
 }
 
 @media (max-width: 1200px) {
   form {
     width: 95%;
   }
-  .todo {
+  .todo-wraper {
     width: 95%;
   }
 }

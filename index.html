@@ -7,7 +7,6 @@
    <link rel="icon" type="imh/png" href="assets/TodozLogo.png">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
    <link rel="stylesheet" href="src/style.css">
-   <script src="src/script.ts"></script>
    <title>ToDoZ</title>
 </head>
 
@@ -48,8 +47,8 @@
             <p><span class="underline--magical">Organize</span> Your Tasks <span class="underline--magical">Easily!</span> </p>
          </div>
          <form action="">
-            <input type="text" placeholder="Type what you have to do today...">
-            <button><i class="fa fa-plus"></i> <span class="label"> Add</span></button>
+            <input type="text" id="todoInput" onsubmit="addItem(event)" placeholder="Type what you have to do today...">
+            <button onclick="addItem(event)"><i class="fa fa-plus"></i> <span class="label"> Add</span></button>
          </form>
       </div>
       
@@ -58,15 +57,60 @@
 <!-- List Of Tasks -->
 
       <div class="container">
-         <div class="todo">
-            <ul class="listTodo">
+         <div class="todo-wraper">
+            <div class="todo-items">
+               <div class="todo-item item-checked">
+                  <div class="todo-check">
+                     <div class="check">
+                        <i class="fa fa-check"></i>
+                     </div>
+                  </div>
+                  <div class="todo-text">
+                     Cook
+                  </div>
+               </div>
 
-            </ul>
+               <div class="todo-item">
+                  <div class="todo-check">
+                     <div class="check">
+                        <i class="fa fa-check"></i>
+                     </div>
+                  </div>
+                  <div class="todo-text">
+                     Clean Dishs
+                  </div>
+               </div>
+
+               <div class="todo-item">
+                  <div class="todo-check">
+                     <div class="check">
+                        <i class="fa fa-check"></i>
+                     </div>
+                  </div>
+                  <div class="todo-text">
+                     Wash Clothes
+                  </div>
+               </div>
+            </div>
+            <div class="todo-settings">
+               <div class="undone-items">
+                  0 Tasks Undone.
+               </div>
+               <div class="todo-selectors">
+                  <span class="todo-all active">All</span>
+                  <span class="todo-done">Done</span>
+                  <span class="todo-undone">Undone</span>
+               </div>
+               <div class="todo-clearDone">
+                  Clear Done Tasks
+               </div>
+            </div>
          </div>
+         
       </div>
 
 <!-- List Of Tasks -->
-
+<script src="src/script.js"></script>
 </body>
 
 
