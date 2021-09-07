@@ -1,0 +1,298 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+*, *::after, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Poppins', 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+::-moz-selection {
+  color: #fff;
+  background: #6D71F9;
+}
+
+::selection {
+  color: #fff;
+  background: #6D71F9;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(109, 113, 249, 0.26);
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(107, 107, 107, 0.33);
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6D71F9;
+}
+
+body {
+  width: 100vw;
+  margin: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 15rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  width: 75vw;
+  position: fixed;
+  top: 2%;
+  right: 13%;
+  z-index: 666;
+  font-size: 1.1em;
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-radius: 50px;
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  background-color: rgba(34, 36, 41, 0.34);
+  border: 0.6px solid rgba(255, 255, 255, 0.125);
+  z-index: 500;
+}
+
+header button {
+  width: 8rem;
+  height: 55px;
+  border-radius: 50px;
+  border: none;
+  margin: 0 0.7rem;
+  cursor: crosshair;
+  color: #6b6b6b;
+  text-align: center;
+  font-size: 1.05em;
+  overflow: hidden;
+  z-index: 501;
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  background-color: rgba(57, 59, 63, 0.63);
+}
+
+header button:hover {
+  background-color: rgba(57, 59, 63, 0.801);
+}
+
+header .contact .fa-arrow-right {
+  -webkit-transition: -webkit-transform 1s ease;
+  transition: -webkit-transform 1s ease;
+  transition: transform 1s ease;
+  transition: transform 1s ease, -webkit-transform 1s ease;
+}
+
+header .contact button:hover .fa-arrow-right {
+  -webkit-transform: translateX(0.3em);
+          transform: translateX(0.3em);
+}
+
+.home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home a {
+  text-decoration: none;
+  color: #6b6b6b;
+}
+
+.home:hover a {
+  color: #fff;
+}
+
+.logo {
+  width: 55px;
+  height: 55px;
+  background-image: linear-gradient(45deg, rgba(109, 113, 249, 0.26), #a945fc);
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  margin: 0 0.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.github-button button {
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  background-color: rgba(109, 113, 249, 0.17);
+  color: #6D71F9;
+}
+
+.github-button button:hover {
+  background-color: rgba(109, 114, 249, 0.268);
+}
+
+.hero {
+  color: #fff;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  padding-top: .8em;
+}
+
+.hero .main {
+  background: -webkit-linear-gradient(45deg, rgba(109, 113, 249, 0.26), #a945fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.underline--magical {
+  background-image: -webkit-linear-gradient(45deg, rgba(109, 113, 249, 0.26), #a945fc);
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 88%;
+  -webkit-transition: background-size 0.25s ease-in;
+  transition: background-size 0.25s ease-in;
+}
+
+.underline--magical:hover {
+  background-size: 100% 88%;
+}
+
+form {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  background-color: rgba(34, 36, 41, 0.34);
+  border: 0.6px solid rgba(255, 255, 255, 0.125);
+  width: 71%;
+  margin: 5rem auto 3rem auto;
+  padding: 9px;
+  border-radius: 7px;
+}
+
+form button {
+  background-color: rgba(109, 113, 249, 0.26);
+  color: #6D71F9;
+  border-radius: 5px;
+  width: 8rem;
+  height: 50px;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  cursor: crosshair;
+}
+
+form button:hover {
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  background-color: rgba(109, 113, 249, 0.17);
+  color: #6D71F9;
+}
+
+form input {
+  min-height: 50px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 10px;
+  overflow: auto;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+}
+
+form input::-webkit-input-placeholder {
+  font-size: 1rem;
+}
+
+form input:-ms-input-placeholder {
+  font-size: 1rem;
+}
+
+form input::-ms-input-placeholder {
+  font-size: 1rem;
+}
+
+form input::placeholder {
+  font-size: 1rem;
+}
+
+.todo {
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  background-color: rgba(34, 36, 41, 0.34);
+  border: 0.6px solid rgba(255, 255, 255, 0.125);
+  height: 200px;
+  width: 71%;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+@media (max-width: 1200px) {
+  form {
+    width: 95%;
+  }
+  .todo {
+    width: 95%;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding-top: 9rem;
+  }
+  .label {
+    display: none;
+  }
+  header button {
+    width: 55px;
+    margin: 0 0.3rem;
+  }
+  form button {
+    width: 50px;
+    border-radius: 50px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
