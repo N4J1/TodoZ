@@ -301,6 +301,10 @@ form input::placeholder {
   font-size: 1.1em;
   font-weight: 500;
   border-radius: 50px;
+  -webkit-filter: blur(0px);
+          filter: blur(0px);
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 .todo-wraper .todo-items .todo-item .todo-check {
@@ -331,12 +335,18 @@ form input::placeholder {
           justify-content: center;
   border: 0.5px #6D71F9 solid;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .todo-wraper .todo-items .todo-item .todo-text {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+
+.todo-wraper .todo-items .todo-item:hover {
+  -webkit-transform: translateX(5px);
+          transform: translateX(5px);
 }
 
 .todo-wraper .todo-settings {
