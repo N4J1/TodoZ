@@ -8,7 +8,7 @@ $dark-text-button:rgba(107,107,107,1);
 $purple-background-button:rgba(109, 113, 249, 0.26);
 $purple-text-color-button:#6D71F9;
 $purple-active:#835be1;
-$purple-hover:#7e5ad1;
+$purple-hover:#8c76c044;
 
 @mixin headerBgDark {
    backdrop-filter: blur(14px) saturate(180%);

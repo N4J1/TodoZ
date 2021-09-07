@@ -377,7 +377,7 @@ form input::placeholder {
 }
 
 .todo-wraper .todo-settings span:hover {
-  color: #7e5ad1;
+  color: #8c76c044;
 }
 
 .todo-wraper .todo-settings span.active {
@@ -385,7 +385,7 @@ form input::placeholder {
 }
 
 .todo-wraper .todo-settings .todo-clearDone:hover {
-  color: #7e5ad1;
+  color: #8c76c044;
   cursor: pointer;
 }
 
