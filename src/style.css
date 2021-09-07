@@ -385,7 +385,7 @@ form input::placeholder {
 }
 
 .todo-wraper .todo-settings .todo-clearDone:hover {
-  color: #8c76c044;
+  color: rgba(252, 69, 69, 0.789);
   cursor: pointer;
 }
 
