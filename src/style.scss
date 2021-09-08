@@ -440,6 +440,10 @@ form{
    }
    form{
       @include headerBgLight();
+      input::placeholder{
+         font-size: 1rem;
+         color:rgb(237, 237, 237);
+      }
       button{
          @include buttonPurpleLight();
       }
