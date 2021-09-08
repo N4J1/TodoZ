@@ -359,7 +359,6 @@ form input::placeholder {
           align-items: center;
   font-size: 1.1em;
   font-weight: 500;
-  border-radius: 50px;
   -webkit-filter: blur(0px);
           filter: blur(0px);
   -webkit-transition: all .5s ease;
