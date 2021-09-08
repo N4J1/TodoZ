@@ -7,11 +7,10 @@
    <link rel="icon" type="imh/png" href="assets/TodozLogo.png">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
    <link rel="stylesheet" type="text/css" href="src/style.css">
-   <script src="src/script.js"></script>
    <title>ToDoZ</title>
 </head>
 
-<body>
+<body class="light-theme">
 <!-- Header -->
 
    
@@ -23,18 +22,22 @@
          
          <div class="nav">
             <div class="nav-items contact">
-               <a href="#">
+               <a href="https://www.linkedin.com/in/yassine-naji-3006bb204/" target="_blank">
                   <button><span class="label">Contact </span> <i class="fa fa-arrow-right"></i></button>
                </a>
             </div>
             <div class="nav-items github-button">
-               <a href="#">
+               <a href="https://github.com/N4J1/TodoZ" target="_blank">
                   <button>
                      <i class="fab fa-github"></i>
                      <span class="label">Github </span>
                   </button>
                </a>
             </div>
+               <button class="themeSwitch">
+                  <i class="theme-fa fa fa-moon"></i>
+               </button>
+            
          </div>
       </header>
 
@@ -47,10 +50,14 @@
             <h1><span class="main">ToDoZ</span> , Your Favorite <span class="underline--magical">To Do</span>  App.</h1>
             <p><span class="underline--magical">Organize</span> Your Tasks <span class="underline--magical">Easily!</span> </p>
          </div>
-         <form action="">
-            <input type="text" id="todoInput" onsubmit="addItem(event)" placeholder="Type what you have to do today...">
-            <button onclick="addItem(event)"><i class="fa fa-plus"></i> <span class="label"> Add</span></button>
-         </form>
+         <div class="form-wraper">
+            <form action="">
+               <input type="text" id="todoInput" onsubmit="addItem(event)" placeholder="Type what you have to do today...">
+               <button onclick="addItem(event)"><i class="fa fa-plus"></i> <span class="label"> Add</span></button>
+            </form>
+            <span class="no-textError">Please enter a valid text</span>
+         </div>
+         
       </div>
       
 <!-- End Hero and Form -->
@@ -60,50 +67,19 @@
       <div class="container">
          <div class="todo-wraper">
             <div class="todo-items">
-               <div class="todo-item item-checked">
-                  <div class="todo-check">
-                     <div class="check">
-                        <i class="fa fa-check"></i>
-                     </div>
-                  </div>
-                  <div class="todo-text">
-                     Cook
-                  </div>
-               </div>
-
-               <div class="todo-item">
-                  <div class="todo-check">
-                     <div class="check">
-                        <i class="fa fa-check"></i>
-                     </div>
-                  </div>
-                  <div class="todo-text">
-                     Clean Dishs
-                  </div>
-               </div>
-
-               <div class="todo-item">
-                  <div class="todo-check">
-                     <div class="check">
-                        <i class="fa fa-check"></i>
-                     </div>
-                  </div>
-                  <div class="todo-text">
-                     Wash Clothes
-                  </div>
-               </div>
+               
             </div>
             <div class="todo-settings">
-               <div class="undone-items">
-                  1 Tasks Undone.
+               <div class="active-todos">
+                  
                </div>
                <div class="todo-selectors">
-                  <span class="todo-all active">All</span>
-                  <span class="todo-done">Done</span>
-                  <span class="todo-undone">Undone</span>
+                  <span onclick="showAll()" class="todo-all activated">All</span>
+                  <span onclick="showActive()" class="todo-active">Active</span>
+                  <span  onclick="showCompleted()" class="todo-completed">Completed</span>
                </div>
-               <div class="todo-clearDone">
-                  Clear Done Tasks
+               <div class="todo-clearDone" onclick="clearCompleted()">
+                  Clear Completed Tasks
                </div>
             </div>
          </div>
@@ -113,7 +89,7 @@
 <!-- List Of Tasks -->
 
 </body>
-
+<script src="src/script.js"></script>
 
 
 </html>
