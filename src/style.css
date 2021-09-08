@@ -36,14 +36,43 @@
   background: #6D71F9;
 }
 
+@-webkit-keyframes drop {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-80px);
+            transform: translateY(-80px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@keyframes drop {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-80px);
+            transform: translateY(-80px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
 body {
   width: 100vw;
   margin: 0;
   background-color: #111;
   overflow-x: hidden;
-  padding-top: 15rem;
   -webkit-transition: background-color .5s ease;
   transition: background-color .5s ease;
+}
+
+.bodyContainer {
+  min-height: 100vh;
 }
 
 button {
@@ -58,13 +87,35 @@ button {
   margin: 0 auto;
 }
 
+.underline {
+  position: relative;
+}
+
+.underline::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  -webkit-transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .underline:hover::before {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}
+
 header {
   width: 75vw;
-  position: fixed;
-  top: 2%;
-  right: 13%;
   z-index: 666;
   font-size: 1.1em;
+  margin: 1rem auto 13rem auto;
   height: 70px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -180,6 +231,8 @@ header .themeSwitch {
 .hero {
   color: #fff;
   text-align: center;
+  -webkit-animation: drop 2s ease;
+          animation: drop 2s ease;
 }
 
 .hero h1 {
@@ -336,6 +389,7 @@ form input::placeholder {
   border-radius: 10px;
   color: #fff;
   overflow: hidden;
+  margin-bottom: 3rem;
 }
 
 .todo-wraper .todo-items {
@@ -415,6 +469,10 @@ form input::placeholder {
   border: 0.6px solid rgba(255, 255, 255, 0.125);
   border: none;
   border-top: 1px rgba(107, 107, 107, 0.33) solid;
+  border-left: 0;
+  border-bottom: 0;
+  border-right: 0;
+  border-radius: 0;
   color: #6b6b6b;
   font-size: 1.2rem;
   min-height: 70px;
@@ -458,12 +516,67 @@ form input::placeholder {
           justify-content: flex-end;
 }
 
+footer {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  height: 40px;
+  width: 100%;
+  color: #fff;
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  background-color: rgba(34, 36, 41, 0.34);
+  border-radius: 12px;
+  border: 0.6px solid rgba(255, 255, 255, 0.125);
+  background: #4248fa;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer p {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.05rem;
+  padding: 0;
+  margin: 0;
+}
+
+footer p i.flag:not(.icon) {
+  margin: 0;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+footer img {
+  max-width: 100%;
+}
+
 .light-theme {
-  background: #6D71F9;
+  background: #fff;
 }
 
 .light-theme .github-button button {
-  color: #fff;
+  color: #F6F6F6;
   color: #6D71F9;
 }
 
@@ -474,31 +587,35 @@ form input::placeholder {
 .light-theme header {
   backdrop-filter: blur(16px) saturate(105%);
   -webkit-backdrop-filter: blur(16px) saturate(105%);
-  background-color: rgba(221, 216, 255, 0.62);
+  background-color: #ffeeee;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  color: #fff;
+  border: 1px solid rgba(80, 80, 80, 0.467);
+  color: #333333;
 }
 
 .light-theme header button {
   backdrop-filter: blur(16px) saturate(105%);
   -webkit-backdrop-filter: blur(16px) saturate(105%);
-  background-color: rgba(221, 216, 255, 0.62);
+  background-color: #ffeeee;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  color: #fff;
+  border: 1px solid rgba(80, 80, 80, 0.467);
+  color: #333333;
 }
 
 .light-theme header .home a {
-  color: #fff;
+  color: #333333;
 }
 
 .light-theme header .home a:hover a, .light-theme header .home:hover a {
   color: rgba(255, 255, 255, 0.597);
 }
 
+.light-theme .hero {
+  color: #333333;
+}
+
 .light-theme .hero .main {
-  background-image: -webkit-linear-gradient(45deg, white, #9a41e2);
+  background-image: -webkit-linear-gradient(45deg, #9a41e2, #563cff);
 }
 
 .light-theme .hero .underline--magical {
@@ -508,9 +625,33 @@ form input::placeholder {
 .light-theme form {
   backdrop-filter: blur(16px) saturate(105%);
   -webkit-backdrop-filter: blur(16px) saturate(105%);
-  background-color: rgba(221, 216, 255, 0.62);
+  background-color: #ffeeee;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
+  border: 1px solid rgba(80, 80, 80, 0.467);
+}
+
+.light-theme form input {
+  color: #333333;
+}
+
+.light-theme form input::-webkit-input-placeholder {
+  font-size: 1rem;
+  color: #333333;
+}
+
+.light-theme form input:-ms-input-placeholder {
+  font-size: 1rem;
+  color: #333333;
+}
+
+.light-theme form input::-ms-input-placeholder {
+  font-size: 1rem;
+  color: #333333;
+}
+
+.light-theme form input::placeholder {
+  font-size: 1rem;
+  color: #333333;
 }
 
 .light-theme form button {
@@ -519,27 +660,32 @@ form input::placeholder {
   color: #fff;
   border-radius: 12px;
   background-color: rgba(109, 114, 249, 0.83);
+  border-radius: 5px;
 }
 
 .light-theme .todo-wraper {
   backdrop-filter: blur(16px) saturate(105%);
   -webkit-backdrop-filter: blur(16px) saturate(105%);
-  background-color: rgba(221, 216, 255, 0.62);
+  background-color: #ffeeee;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  color: #fff;
+  border: 1px solid rgba(80, 80, 80, 0.467);
+  color: #333333;
 }
 
 .light-theme .todo-wraper .todo-item {
   backdrop-filter: blur(16px) saturate(105%);
   -webkit-backdrop-filter: blur(16px) saturate(105%);
-  background-color: rgba(221, 216, 255, 0.62);
+  background-color: #ffeeee;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
+  border: 1px solid rgba(80, 80, 80, 0.467);
 }
 
 .light-theme .todo-wraper .todo-item .check {
   border-color: #4248fa;
+}
+
+.light-theme .todo-wraper .todo-item .check i {
+  color: #fff;
 }
 
 .light-theme .todo-wraper .todo-item .check .completed {
@@ -549,17 +695,19 @@ form input::placeholder {
 .light-theme .todo-wraper .todo-settings {
   backdrop-filter: blur(16px) saturate(105%);
   -webkit-backdrop-filter: blur(16px) saturate(105%);
-  background-color: rgba(221, 216, 255, 0.62);
+  background-color: #ffeeee;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  color: #fff;
+  border: 1px solid rgba(80, 80, 80, 0.467);
+  color: #333333;
+  border-left: 0;
+  border-bottom: 0;
+  border-right: 0;
+  border-radius: 0;
 }
 
 @media (max-width: 1200px) {
   header {
     width: 90%;
-    left: 5%;
-    right: 100%;
   }
   .form-wraper {
     width: 95%;
@@ -570,11 +718,11 @@ form input::placeholder {
 }
 
 @media (max-width: 600px) {
-  body {
-    padding-top: 9rem;
-  }
   .label {
     display: none;
+  }
+  header {
+    margin-bottom: 5rem;
   }
   header button {
     width: 55px;

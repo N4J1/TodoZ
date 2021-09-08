@@ -35,9 +35,9 @@ $purple-hover:#8c76c044;
 @mixin headerBgLight {
    backdrop-filter: blur(16px) saturate(105%);
     -webkit-backdrop-filter: blur(16px) saturate(105%);
-    background-color: rgba(221, 216, 255, 0.62);
+    background-color: #ffeeee;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
+    border: 1px solid rgba(80, 80, 80, 0.467);
 }
 
 @mixin buttonPurpleLight {
@@ -84,14 +84,27 @@ $purple-hover:#8c76c044;
    background: $purple-text-color-button;
    ;
 }
- 
+
+@keyframes drop {
+   0% {
+     opacity: 0;
+     transform: translateY(-80px);
+   }
+   100% {
+     opacity: 1;
+     transform: translateY(0px);
+   }
+ }
 body{
    width: 100vw;
    margin: 0;
    background-color: $background-color;
    overflow-x: hidden;
-   padding-top: 15rem;
    transition: background-color .5s ease;
+}
+
+.bodyContainer{
+   min-height: 100vh;
 }
 
 button{
@@ -105,15 +118,35 @@ button{
    margin: 0 auto;
 }
 
+.underline{
+   position: relative;
+ }
+ 
+ .underline::before{
+   content: '';
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   width: 0;
+   height: 2px;
+   background-color: #fff;
+   transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+ }
+ 
+ @media (hover: hover) and (pointer: fine) {
+   .underline:hover::before{
+     left: 0;
+     right: auto;
+     width: 100%;
+   }
+ }
 
 
 header{
    width: 75vw;
-   position: fixed;
-   top: 2%;
-   right: 13%;
    z-index: 666;
    font-size: 1.1em;
+   margin: 1rem auto 13rem auto;
    height: 70px;
    display: flex;
    align-items: center;
@@ -202,6 +235,7 @@ header{
 .hero{
    color: #fff;
    text-align: center;
+   animation: drop 2s ease;
 
    h1{
       font-size: 3rem;
@@ -324,6 +358,7 @@ form{
    border-radius: 10px;
    color: #fff;
    overflow: hidden;
+   margin-bottom: 3rem;
    .todo-items{
       min-height: 70px;
       .todo-item{
@@ -371,6 +406,10 @@ form{
       @include headerBgDark();
       border:none;
       border-top: 1px rgba(107, 107, 107, 0.33) solid;
+      border-left: 0;
+      border-bottom: 0;
+      border-right: 0;
+      border-radius: 0;
       color:$dark-text-button ;
       font-size: 1.2rem;
       min-height: 70px;
@@ -378,16 +417,20 @@ form{
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       span{
          cursor: pointer;
          padding: 0 1em;
       }
+
       span.active-todos{
          color: #565780;
       }
+
       span:hover{
          color:$purple-hover ;
       }
+
       span.active{
          color: $purple-active;
       }
@@ -401,29 +444,66 @@ form{
    
 }
 
+footer{
+   align-self: flex-end;
+   height: 40px;
+   width: 100%;
+   
+   color: #fff;
+   @include headerBgDark();
+   background: #4248fa;
+   border-radius: 0;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   p{
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      padding: 0;
+      margin: 0;
+      i.flag:not(.icon){
+         margin: 0;
+      }
+   }
+   a{
+      color: #fff;
+      text-decoration: none;
+   }
+   a:hover{
+      color: #fff;
+   }
+   img{
+      max-width: 100%;
+
+   }
+}
+
 
 //-----------------------------Light Mode----------------------------------
 .light-theme{
    .github-button{ 
       button{
       
-      color: #fff;
+      color: #F6F6F6;
       color: $purple-text-color-button;
       } 
       button:hover{
          background-color:rgb(193, 195, 252) ;
       }
    }
-   background: #6D71F9;
+   background: #fff;
    header{
       @include headerBgLight();
-      color: #fff;
+      color: rgb(51, 51, 51);
       button{
          @include headerBgLight();
-         color: #fff;
+         color: rgb(51, 51, 51);
       }
       .home a{
-         color: #fff;
+         color: rgb(51, 51, 51);
       }
       .home a:hover,.home:hover{
          a{color: rgba(255, 255, 255, 0.597);}
@@ -431,8 +511,9 @@ form{
       
    }
    .hero{
+      color: rgb(51, 51, 51);
       .main{
-         background-image: -webkit-linear-gradient(45deg,rgb(255, 255, 255), rgb(154, 65, 226));
+         background-image: -webkit-linear-gradient(45deg,rgb(154, 65, 226),rgb(86, 60, 255));
       }
       .underline--magical{
          background-image: --webkit-linear-gradient(90deg,rgb(255, 255, 255),rgb(154, 65, 226) );
@@ -440,21 +521,28 @@ form{
    }
    form{
       @include headerBgLight();
+      input{
+         color: rgb(51, 51, 51);
+      }
       input::placeholder{
          font-size: 1rem;
-         color:rgb(237, 237, 237);
+         color:rgb(51, 51, 51);
       }
       button{
          @include buttonPurpleLight();
+         border-radius: 5px;
       }
    }
    .todo-wraper{
       @include headerBgLight();
-      color: #fff;
+      color: rgb(51, 51, 51);
       .todo-item{
          @include headerBgLight();
          .check{
             border-color: #4248fa;
+            i{
+               color: #fff;
+            }
             .completed{
                background-color: #4248fa;
             }
@@ -462,7 +550,11 @@ form{
       }
       .todo-settings{
          @include headerBgLight();
-         color: #fff;
+         color: rgb(51, 51, 51);
+         border-left: 0;
+         border-bottom: 0;
+         border-right: 0;
+         border-radius: 0;
       }
    }
 }
@@ -472,8 +564,6 @@ form{
 @media (max-width:1200px) {
    header{
       width: 90%;
-      left: 5%;
-      right: 100%;
    }
    .form-wraper{
       width: 95%;
@@ -484,15 +574,12 @@ form{
 }
 
 @media (max-width:600px) {
-   body{
-      padding-top: 9rem;
-   }
    
    .label{
       display: none;
    }
    header{
-
+      margin-bottom: 5rem;
       button{
       width: 55px;
       margin: 0 0.3rem;
